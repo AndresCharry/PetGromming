@@ -19,22 +19,25 @@ public class Pet implements Serializable {
     private String color;
     private String Allergic;
     private String specialAttention;
+    private String observations;
     @OneToOne
     private Owner owner;
 
     public Pet() {
     }
 
-    public Pet(int id, String name, String breed, String color, String Allergic, 
-            String specialAttention, Owner owner) {
+    public Pet(int id, String name, String breed, String color, String Allergic, String specialAttention, String observation, Owner owner) {
         this.id = id;
         this.name = name;
         this.breed = breed;
         this.color = color;
         this.Allergic = Allergic;
         this.specialAttention = specialAttention;
+        this.observations = observation;
         this.owner = owner;
     }
+
+
 
     public int getId() {
         return id;
@@ -83,5 +86,22 @@ public class Pet implements Serializable {
     public void setSpecialAttention(String specialAttention) {
         this.specialAttention = specialAttention;
     }
+
+    public String getObservation() {
+        return observations;
+    }
+
+    public void setObservation(String observation) {
+        this.observations = observation;
+    }
+
+    public Owner getOwner() {
+        return owner;
+    }
+
+    public void setOwner(Owner owner) {
+        this.owner = owner;
+    }
+    
     
 }

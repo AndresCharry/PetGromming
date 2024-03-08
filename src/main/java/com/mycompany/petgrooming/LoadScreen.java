@@ -1,9 +1,12 @@
 package com.mycompany.petgrooming;
 
 import com.mycompany.petgrooming.logic.LogicController;
+import javax.swing.JDialog;
+import javax.swing.JOptionPane;
 
 public class LoadScreen extends javax.swing.JFrame {
 
+    LogicController controller = new LogicController();
     public LoadScreen() {
         initComponents();
     }
@@ -237,11 +240,18 @@ public class LoadScreen extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaveActionPerformed
-        LogicController controller = new LogicController(txtPetsName.getText(), 
-                txtPetsBreeds.getText(), txtPetsColor.getText(), 
+        String allergic = (String)cmbPetsAllergic.getSelectedItem();
+        String Attention = (String) cmbPetAttention.getSelectedItem();
+        controller.save(txtPetsName.getText(), 
+                txtPetsBreeds.getText(), txtPetsColor.getText(),
+                allergic, Attention,
                 txtPetsObservations.getText(), txtOwnersName.getText(),
                 txtOwnerPhone.getText());
-        // TODO add your handling code here:
+        
+        JOptionPane optionpane = new JOptionPane("Se a guardado correctamente", JOptionPane.INFORMATION_MESSAGE);
+        JDialog dialog = optionpane.createDialog("Título");
+        dialog.setAlwaysOnTop(true);
+        dialog.setVisible(true);
     }//GEN-LAST:event_btnSaveActionPerformed
 
     private void btnCleanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCleanActionPerformed
@@ -254,7 +264,6 @@ public class LoadScreen extends javax.swing.JFrame {
         
         txtOwnersName.setText("");
         txtOwnerPhone.setText("");
-        // TODO add your handling code here:
     }//GEN-LAST:event_btnCleanActionPerformed
 
 
