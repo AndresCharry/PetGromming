@@ -1,4 +1,4 @@
-package com.mycompany.petgrooming;
+package com.mycompany.petgrooming.gui;
 
 import com.mycompany.petgrooming.logic.LogicController;
 import javax.swing.JDialog;
@@ -6,8 +6,10 @@ import javax.swing.JOptionPane;
 
 public class LoadScreen extends javax.swing.JFrame {
 
-    LogicController controller = new LogicController();
+    LogicController controller;
+    
     public LoadScreen() {
+        controller = new LogicController();
         initComponents();
     }
 
@@ -228,7 +230,6 @@ public class LoadScreen extends javax.swing.JFrame {
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                                 .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, 274, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(113, 113, 113)))
-                        .addGap(18, 18, 18)
                         .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(333, 333, 333)
@@ -240,11 +241,9 @@ public class LoadScreen extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaveActionPerformed
-        String allergic = (String)cmbPetsAllergic.getSelectedItem();
-        String Attention = (String) cmbPetAttention.getSelectedItem();
         controller.save(txtPetsName.getText(), 
                 txtPetsBreeds.getText(), txtPetsColor.getText(),
-                allergic, Attention,
+                (String)cmbPetsAllergic.getSelectedItem(), (String) cmbPetAttention.getSelectedItem(),
                 txtPetsObservations.getText(), txtOwnersName.getText(),
                 txtOwnerPhone.getText());
         

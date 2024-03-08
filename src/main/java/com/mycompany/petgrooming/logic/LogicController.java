@@ -24,5 +24,9 @@ public class LogicController {
         owner.setPhone(ownerPhone);
         controller.save(pet, owner);
     }
+
+    public List<Pet> bringpets() {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
     
 }
