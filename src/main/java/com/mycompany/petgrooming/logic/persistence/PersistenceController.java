@@ -1,13 +1,7 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package com.mycompany.petgrooming.logic.persistence;
 
-/**
- *
- * @author charry
- */
 public class PersistenceController {
+    OwnerJpaController ownerController = new OwnerJpaController();
+    PetJpaController petController = new PetJpaController();
     
 }

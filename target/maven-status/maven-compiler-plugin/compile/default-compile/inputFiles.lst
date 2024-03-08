@@ -1,4 +1,12 @@
 /home/charry/workspace/projects/java/PetGrooming/src/main/java/com/mycompany/petgrooming/logic/Pet.java
+/home/charry/workspace/projects/java/PetGrooming/src/main/java/com/mycompany/petgrooming/logic/persistence/OwnerJpaController.java
 /home/charry/workspace/projects/java/PetGrooming/src/main/java/com/mycompany/petgrooming/logic/Owner.java
+/home/charry/workspace/projects/java/PetGrooming/src/main/java/com/mycompany/petgrooming/gui/MainScreen.java
 /home/charry/workspace/projects/java/PetGrooming/src/main/java/com/mycompany/petgrooming/PetGrooming.java
+/home/charry/workspace/projects/java/PetGrooming/src/main/java/com/mycompany/petgrooming/logic/persistence/exceptions/NonexistentEntityException.java
+/home/charry/workspace/projects/java/PetGrooming/src/main/java/com/mycompany/petgrooming/logic/persistence/exceptions/PreexistingEntityException.java
+/home/charry/workspace/projects/java/PetGrooming/src/main/java/com/mycompany/petgrooming/LoadScreen.java
+/home/charry/workspace/projects/java/PetGrooming/src/main/java/com/mycompany/petgrooming/logic/persistence/exceptions/IllegalOrphanException.java
 /home/charry/workspace/projects/java/PetGrooming/src/main/java/com/mycompany/petgrooming/logic/LogicController.java
+/home/charry/workspace/projects/java/PetGrooming/src/main/java/com/mycompany/petgrooming/logic/persistence/PersistenceController.java
+/home/charry/workspace/projects/java/PetGrooming/src/main/java/com/mycompany/petgrooming/logic/persistence/PetJpaController.java

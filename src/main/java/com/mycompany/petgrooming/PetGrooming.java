@@ -4,6 +4,9 @@
 
 package com.mycompany.petgrooming;
 
+import com.mycompany.petgrooming.gui.MainScreen;
+
+
 /**
  *
  * @author charry
@@ -11,6 +14,8 @@ package com.mycompany.petgrooming;
 public class PetGrooming {
 
     public static void main(String[] args) {
-        System.out.println("hola World!");
+        MainScreen mainScreen = new MainScreen();
+        mainScreen.setVisible(true);
+        mainScreen.setLocationRelativeTo(null);
     }
 }
