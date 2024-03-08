@@ -7,7 +7,7 @@ import javax.swing.table.DefaultTableModel;
 
 public class ViewScreen extends javax.swing.JFrame {
 
-    LogicController logicController;
+    LogicController logicController = null;
     
     public ViewScreen() {
         logicController = new LogicController();
@@ -21,9 +21,9 @@ public class ViewScreen extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        petTable = new javax.swing.JTable();
         jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        bntRemove = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -38,8 +38,8 @@ public class ViewScreen extends javax.swing.JFrame {
 
         jPanel1.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
-        jTable1.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        petTable.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        petTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {},
                 {},
@@ -50,13 +50,18 @@ public class ViewScreen extends javax.swing.JFrame {
 
             }
         ));
-        jScrollPane1.setViewportView(jTable1);
+        jScrollPane1.setViewportView(petTable);
 
         jButton1.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
         jButton1.setText("Edit");
 
-        jButton2.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
-        jButton2.setText("remove");
+        bntRemove.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        bntRemove.setText("remove");
+        bntRemove.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bntRemoveActionPerformed(evt);
+            }
+        });
 
         jLabel2.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
         jLabel2.setText("Datos de mascotas:");
@@ -72,7 +77,7 @@ public class ViewScreen extends javax.swing.JFrame {
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 511, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(24, 24, 24)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(bntRemove, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                     .addComponent(jLabel2))
                 .addContainerGap(20, Short.MAX_VALUE))
@@ -89,7 +94,7 @@ public class ViewScreen extends javax.swing.JFrame {
                 .addGap(41, 41, 41)
                 .addComponent(jButton1)
                 .addGap(48, 48, 48)
-                .addComponent(jButton2)
+                .addComponent(bntRemove)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -124,19 +129,30 @@ public class ViewScreen extends javax.swing.JFrame {
         loadTable();
     }//GEN-LAST:event_formWindowOpened
 
+    private void bntRemoveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bntRemoveActionPerformed
+        if (petTable.getRowCount() > 0){
+           if (petTable.getSelectedRow() != -1){
+               int idPet = Integer.parseInt(String.valueOf(petTable.getValueAt(petTable.getSelectedRowCount(), 0)));
+               
+           } 
+        }
+        // TODO add your handling code here:
+    }//GEN-LAST:event_bntRemoveActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton bntRemove;
     private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
+    private javax.swing.JTable petTable;
     // End of variables declaration//GEN-END:variables
 
     private void loadTable() {
         DefaultTableModel table = new DefaultTableModel(){
+            @Override
             public boolean isCellEditable(int row, int column){
                 return false;
             }
@@ -156,5 +172,7 @@ public class ViewScreen extends javax.swing.JFrame {
                 table.addRow(object);
             }
         }
+        
+        petTable.setModel(table);
    }
 }

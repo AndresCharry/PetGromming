@@ -1,7 +1,6 @@
 package com.mycompany.petgrooming.logic;
 
 import com.mycompany.petgrooming.logic.persistence.PersistenceController;
-import java.util.ArrayList;
 import java.util.List;
 
 public class LogicController {
@@ -12,21 +11,25 @@ public class LogicController {
 
     public void save(String petName, String petBreed, String petColor, String petAllergic, 
             String petAttention, String petObservation, String ownerName, String ownerPhone) {
+        
+        Owner owner = new Owner();
+        owner.setName(ownerName);
+        owner.setPhone(ownerPhone);
+        
         Pet pet = new Pet();
         pet.setName(petName);
         pet.setBreed(petBreed);
         pet.setColor(petColor);
         pet.setAllergic(petAllergic);
         pet.setSpecialAttention(petAttention);
+        pet.setOwner(owner);
+        pet.setObservation(petObservation);
         
-        Owner owner = new Owner();
-        owner.setName(ownerName);
-        owner.setPhone(ownerPhone);
-        controller.save(pet, owner);
+        controller.save(owner, pet);
     }
 
     public List<Pet> bringpets() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        return controller.findall();
     }
     
 }

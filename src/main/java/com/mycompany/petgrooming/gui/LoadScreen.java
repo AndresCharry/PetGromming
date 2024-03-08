@@ -6,7 +6,7 @@ import javax.swing.JOptionPane;
 
 public class LoadScreen extends javax.swing.JFrame {
 
-    LogicController controller;
+    LogicController controller = null;
     
     public LoadScreen() {
         controller = new LogicController();
