@@ -2,6 +2,7 @@
 /home/charry/workspace/projects/java/PetGrooming/src/main/java/com/mycompany/petgrooming/PetGrooming.java
 /home/charry/workspace/projects/java/PetGrooming/src/main/java/com/mycompany/petgrooming/logic/persistence/exceptions/NonexistentEntityException.java
 /home/charry/workspace/projects/java/PetGrooming/src/main/java/com/mycompany/petgrooming/logic/persistence/exceptions/PreexistingEntityException.java
+/home/charry/workspace/projects/java/PetGrooming/src/main/java/com/mycompany/petgrooming/gui/EditScreen.java
 /home/charry/workspace/projects/java/PetGrooming/src/main/java/com/mycompany/petgrooming/logic/Pet.java
 /home/charry/workspace/projects/java/PetGrooming/src/main/java/com/mycompany/petgrooming/gui/ViewScreen.java
 /home/charry/workspace/projects/java/PetGrooming/src/main/java/com/mycompany/petgrooming/logic/Owner.java

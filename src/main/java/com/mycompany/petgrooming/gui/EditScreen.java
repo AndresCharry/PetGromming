@@ -1,16 +1,19 @@
 package com.mycompany.petgrooming.gui;
 
 import com.mycompany.petgrooming.logic.LogicController;
+import com.mycompany.petgrooming.logic.Pet;
 import javax.swing.JDialog;
 import javax.swing.JOptionPane;
 
-public class LoadScreen extends javax.swing.JFrame {
+public class EditScreen extends javax.swing.JFrame {
 
 	LogicController controller = null;
+	Pet pet = null;
 
-	public LoadScreen() {
+	public EditScreen(int idPet) {
 		controller = new LogicController();
 		initComponents();
+		loadData(idPet);
 	}
 
 	@SuppressWarnings("unchecked")
@@ -39,7 +42,6 @@ public class LoadScreen extends javax.swing.JFrame {
         jPanel2 = new javax.swing.JPanel();
         btnClean = new javax.swing.JButton();
         btnSave = new javax.swing.JButton();
-        btnBack = new javax.swing.JButton();
         jLabel11 = new javax.swing.JLabel();
         jLabel12 = new javax.swing.JLabel();
 
@@ -169,18 +171,10 @@ public class LoadScreen extends javax.swing.JFrame {
         });
 
         btnSave.setFont(new java.awt.Font("Dialog", 0, 24)); // NOI18N
-        btnSave.setText("save");
+        btnSave.setText("save changes");
         btnSave.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnSaveActionPerformed(evt);
-            }
-        });
-
-        btnBack.setFont(new java.awt.Font("Dialog", 0, 24)); // NOI18N
-        btnBack.setText("<- back");
-        btnBack.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnBackActionPerformed(evt);
             }
         });
 
@@ -189,13 +183,11 @@ public class LoadScreen extends javax.swing.JFrame {
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(btnBack)
-                .addGap(102, 102, 102)
+                .addGap(27, 27, 27)
                 .addComponent(btnClean, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(80, 80, 80)
-                .addComponent(btnSave, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(59, 59, 59))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 148, Short.MAX_VALUE)
+                .addComponent(btnSave, javax.swing.GroupLayout.PREFERRED_SIZE, 197, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(24, 24, 24))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -203,8 +195,7 @@ public class LoadScreen extends javax.swing.JFrame {
                 .addGap(37, 37, 37)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnClean)
-                    .addComponent(btnSave)
-                    .addComponent(btnBack))
+                    .addComponent(btnSave))
                 .addContainerGap(19, Short.MAX_VALUE))
         );
 
@@ -215,27 +206,30 @@ public class LoadScreen extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jLabel1)
-                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, 247, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jLabel11)
+                .addGap(236, 236, 236)
+                .addComponent(jLabel1)
+                .addGap(0, 0, Short.MAX_VALUE))
+            .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, 247, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(jLabel11))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(124, 124, 124)
+                        .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(36, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(99, 99, 99))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(31, 31, 31)
-                .addComponent(jLabel1)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
+                        .addGap(31, 31, 31)
+                        .addComponent(jLabel1)
                         .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -243,7 +237,7 @@ public class LoadScreen extends javax.swing.JFrame {
                                 .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, 274, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(113, 113, 113))))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(333, 333, 333)
+                        .addGap(421, 421, 421)
                         .addComponent(jLabel11)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -254,16 +248,17 @@ public class LoadScreen extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaveActionPerformed
-		controller.save(txtPetsName.getText(),
+		controller.edit(pet, txtPetsName.getText(),
 			txtPetsBreeds.getText(), txtPetsColor.getText(),
 			(String) cmbPetsAllergic.getSelectedItem(), (String) cmbPetAttention.getSelectedItem(),
 			txtPetsObservations.getText(), txtOwnersName.getText(),
 			txtOwnerPhone.getText());
-
-		JOptionPane optionpane = new JOptionPane("Se a guardado correctamente", JOptionPane.INFORMATION_MESSAGE);
-		JDialog dialog = optionpane.createDialog("Título");
-		dialog.setAlwaysOnTop(true);
-		dialog.setVisible(true);
+		
+		message("Edicion realizada correctamente", "update", "information");
+		ViewScreen view = new ViewScreen();
+		view.setVisible(true);
+		view.setLocationRelativeTo(null);
+		this.dispose();
     }//GEN-LAST:event_btnSaveActionPerformed
 
     private void btnCleanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCleanActionPerformed
@@ -278,16 +273,8 @@ public class LoadScreen extends javax.swing.JFrame {
 		txtOwnerPhone.setText("");
     }//GEN-LAST:event_btnCleanActionPerformed
 
-    private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
-		MainScreen main = new MainScreen();
-		main.setVisible(true);
-		main.setLocationRelativeTo(null);
-		this.dispose();
-    }//GEN-LAST:event_btnBackActionPerformed
-
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnBack;
     private javax.swing.JButton btnClean;
     private javax.swing.JButton btnSave;
     private javax.swing.JComboBox<String> cmbPetAttention;
@@ -313,4 +300,38 @@ public class LoadScreen extends javax.swing.JFrame {
     private javax.swing.JTextField txtPetsName;
     private javax.swing.JTextArea txtPetsObservations;
     // End of variables declaration//GEN-END:variables
+
+	private void loadData(int idPet) {
+		this.pet = controller.bringpets(idPet);
+
+		txtPetsName.setText(pet.getName());
+		txtPetsBreeds.setText(pet.getBreed());
+		txtPetsColor.setText(pet.getColor());
+		txtPetsObservations.setText(pet.getObservation());
+		if (pet.getAllergic().equalsIgnoreCase("YES")) {
+			cmbPetsAllergic.setSelectedIndex(1);
+		} else {
+			cmbPetsAllergic.setSelectedIndex(2);
+		}
+		if (pet.getBreed().equalsIgnoreCase("YES")) {
+			cmbPetAttention.setSelectedIndex(1);
+		} else {
+			cmbPetAttention.setSelectedIndex(2);
+		}
+
+		txtOwnersName.setText(pet.getOwner().getName());
+		txtOwnerPhone.setText(pet.getOwner().getPhone());
+	}
+
+	private void message(String message, String title, String typeMessage) {
+		JOptionPane optionPane = null;
+		if (typeMessage.equalsIgnoreCase("information")) {
+			optionPane = new JOptionPane(message, JOptionPane.INFORMATION_MESSAGE);
+		} else if (typeMessage.equalsIgnoreCase("error")) {
+			optionPane = new JOptionPane(message, JOptionPane.ERROR_MESSAGE);
+		}
+		JDialog dialog = optionPane.createDialog(title);
+		dialog.setAlwaysOnTop(true);
+		dialog.setVisible(true);
+	}
 }

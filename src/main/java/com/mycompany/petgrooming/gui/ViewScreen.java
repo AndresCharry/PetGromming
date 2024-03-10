@@ -3,18 +3,20 @@ package com.mycompany.petgrooming.gui;
 import com.mycompany.petgrooming.logic.LogicController;
 import com.mycompany.petgrooming.logic.Pet;
 import java.util.List;
+import javax.swing.JDialog;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
 public class ViewScreen extends javax.swing.JFrame {
 
-    LogicController logicController = null;
-    
-    public ViewScreen() {
-        logicController = new LogicController();
-        initComponents();
-    }
+	LogicController logicController = null;
 
-    @SuppressWarnings("unchecked")
+	public ViewScreen() {
+		logicController = new LogicController();
+		initComponents();
+	}
+
+	@SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
@@ -22,9 +24,10 @@ public class ViewScreen extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         petTable = new javax.swing.JTable();
-        jButton1 = new javax.swing.JButton();
-        bntRemove = new javax.swing.JButton();
+        btnEdit = new javax.swing.JButton();
+        bntBack = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
+        bntRemove = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         addWindowListener(new java.awt.event.WindowAdapter() {
@@ -52,8 +55,24 @@ public class ViewScreen extends javax.swing.JFrame {
         ));
         jScrollPane1.setViewportView(petTable);
 
-        jButton1.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
-        jButton1.setText("Edit");
+        btnEdit.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        btnEdit.setText("Edit");
+        btnEdit.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEditActionPerformed(evt);
+            }
+        });
+
+        bntBack.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        bntBack.setText("<- back");
+        bntBack.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bntBackActionPerformed(evt);
+            }
+        });
+
+        jLabel2.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
+        jLabel2.setText("Datos de mascotas:");
 
         bntRemove.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
         bntRemove.setText("remove");
@@ -63,9 +82,6 @@ public class ViewScreen extends javax.swing.JFrame {
             }
         });
 
-        jLabel2.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
-        jLabel2.setText("Datos de mascotas:");
-
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -74,11 +90,12 @@ public class ViewScreen extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 511, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(24, 24, 24)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 517, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(bntRemove, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                            .addComponent(bntBack, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(btnEdit, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(bntRemove, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                     .addComponent(jLabel2))
                 .addContainerGap(20, Short.MAX_VALUE))
         );
@@ -92,9 +109,11 @@ public class ViewScreen extends javax.swing.JFrame {
                 .addGap(12, 12, 12))
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(41, 41, 41)
-                .addComponent(jButton1)
-                .addGap(48, 48, 48)
+                .addComponent(btnEdit)
+                .addGap(35, 35, 35)
                 .addComponent(bntRemove)
+                .addGap(35, 35, 35)
+                .addComponent(bntBack)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -110,7 +129,7 @@ public class ViewScreen extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addGap(183, 183, 183)
                         .addComponent(jLabel1)))
-                .addContainerGap(87, Short.MAX_VALUE))
+                .addContainerGap(85, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -126,23 +145,56 @@ public class ViewScreen extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
-        loadTable();
+		loadTable();
     }//GEN-LAST:event_formWindowOpened
 
+    private void bntBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bntBackActionPerformed
+		MainScreen main = new MainScreen();
+		main.setVisible(true);
+		main.setLocationRelativeTo(null);
+		this.dispose();
+    }//GEN-LAST:event_bntBackActionPerformed
+
     private void bntRemoveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bntRemoveActionPerformed
-        if (petTable.getRowCount() > 0){
-           if (petTable.getSelectedRow() != -1){
-               int idPet = Integer.parseInt(String.valueOf(petTable.getValueAt(petTable.getSelectedRowCount(), 0)));
-               
-           } 
-        }
-        // TODO add your handling code here:
+		if (petTable.getRowCount() > 0) {
+			if (petTable.getSelectedRow() != -1) {
+				int idPet = Integer.parseInt(String.valueOf(petTable.getValueAt(petTable.getSelectedRowCount(), 0)));
+
+				logicController.remove(idPet);
+
+				message("Was successfully deleted", "Pet Delete ", "Information");
+				loadTable();
+			} else {
+				message("No Row Selected", "Error", "Error");
+			}
+		} else {
+			message("table is empty", "Error", "Error");
+		}
     }//GEN-LAST:event_bntRemoveActionPerformed
+
+    private void btnEditActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditActionPerformed
+		
+
+		if (petTable.getRowCount() > 0) {
+			if (petTable.getSelectedRow() != -1) {
+				int idPet = Integer.parseInt(String.valueOf(petTable.getValueAt(petTable.getSelectedRow(), 0)));
+				EditScreen edit = new EditScreen(idPet);
+				edit.setVisible(true);
+				edit.setLocationRelativeTo(null);
+				this.dispose();
+			} else {
+				message("No Row Selected", "Error", "Error");
+			}
+		} else {
+			message("table is empty", "Error", "Error");
+		}
+    }//GEN-LAST:event_btnEditActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton bntBack;
     private javax.swing.JButton bntRemove;
-    private javax.swing.JButton jButton1;
+    private javax.swing.JButton btnEdit;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
@@ -150,29 +202,41 @@ public class ViewScreen extends javax.swing.JFrame {
     private javax.swing.JTable petTable;
     // End of variables declaration//GEN-END:variables
 
-    private void loadTable() {
-        DefaultTableModel table = new DefaultTableModel(){
-            @Override
-            public boolean isCellEditable(int row, int column){
-                return false;
-            }
-        };
-        
-        String[] list = {"Pet's Name", "Pets's Breed", "Pet's Color", "Allergic", "Spe. Atte ", "Owner's Name",
-        "Owner's phone"};
-        table.setColumnIdentifiers(list);
-        
-        List<Pet> petslist = logicController.bringpets();
-        
-        if (petslist != null){
-            for (Pet pet: petslist){
-                Object[] object = {pet.getId(), pet.getName(), pet.getBreed(), pet.getColor(), pet.getAllergic(),
-                pet.getSpecialAttention(), pet.getOwner().getName(), pet.getOwner().getPhone()};
+	private void loadTable() {
+		DefaultTableModel table = new DefaultTableModel() {
+			@Override
+			public boolean isCellEditable(int row, int column) {
+				return false;
+			}
+		};
 
-                table.addRow(object);
-            }
-        }
-        
-        petTable.setModel(table);
-   }
+		String[] list = {"Id", "Pet's Name", "Pets's Breed", "Pet's Color", "Allergic", "Spe. Atte ",
+			"Owner's Name", "Owner's phone"};
+		table.setColumnIdentifiers(list);
+
+		List<Pet> petslist = logicController.bringpets();
+
+		if (petslist != null) {
+			for (Pet pet : petslist) {
+				Object[] object = {pet.getId(), pet.getName(), pet.getBreed(), pet.getColor(), pet.getAllergic(),
+					pet.getSpecialAttention(), pet.getOwner().getName(), pet.getOwner().getPhone()};
+
+				table.addRow(object);
+			}
+		}
+
+		petTable.setModel(table);
+	}
+
+	private void message(String message, String title, String typeMessage) {
+		JOptionPane optionPane = null;
+		if (typeMessage.equalsIgnoreCase("information")) {
+			optionPane = new JOptionPane(message, JOptionPane.INFORMATION_MESSAGE);
+		} else if (typeMessage.equalsIgnoreCase("error")) {
+			optionPane = new JOptionPane(message, JOptionPane.ERROR_MESSAGE);
+		}
+		JDialog dialog = optionPane.createDialog(title);
+		dialog.setAlwaysOnTop(true);
+		dialog.setVisible(true);
+	}
 }

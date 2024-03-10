@@ -1,19 +1,19 @@
 package com.mycompany.petgrooming.gui;
 
 public class MainScreen extends javax.swing.JFrame {
-       
-    public MainScreen() {
-        initComponents();
-    }
 
-    @SuppressWarnings("unchecked")
+	public MainScreen() {
+		initComponents();
+	}
+
+	@SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
         jLabel1 = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
         bntView = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
+        btnExit = new javax.swing.JButton();
         bntLoad = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
 
@@ -30,8 +30,13 @@ public class MainScreen extends javax.swing.JFrame {
             }
         });
 
-        jButton3.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
-        jButton3.setText("Exit");
+        btnExit.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
+        btnExit.setText("Exit");
+        btnExit.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnExitActionPerformed(evt);
+            }
+        });
 
         bntLoad.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
         bntLoad.setText("Load Data");
@@ -49,7 +54,7 @@ public class MainScreen extends javax.swing.JFrame {
                 .addGap(72, 72, 72)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(bntLoad, javax.swing.GroupLayout.PREFERRED_SIZE, 152, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 152, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnExit, javax.swing.GroupLayout.PREFERRED_SIZE, 152, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(bntView, javax.swing.GroupLayout.PREFERRED_SIZE, 152, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(106, Short.MAX_VALUE))
         );
@@ -61,7 +66,7 @@ public class MainScreen extends javax.swing.JFrame {
                 .addGap(45, 45, 45)
                 .addComponent(bntView, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(58, 58, 58)
-                .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnExit, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -102,22 +107,28 @@ public class MainScreen extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void bntLoadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bntLoadActionPerformed
-        LoadScreen loadScreen = new LoadScreen();
-        loadScreen.setVisible(true);
-        loadScreen.setLocationRelativeTo(null);
+		LoadScreen loadScreen = new LoadScreen();
+		loadScreen.setVisible(true);
+		loadScreen.setLocationRelativeTo(null);
+		this.dispose();
     }//GEN-LAST:event_bntLoadActionPerformed
 
     private void bntViewActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bntViewActionPerformed
-        ViewScreen viewScreen = new ViewScreen();
-        viewScreen.setVisible(true);
-        viewScreen.setLocationRelativeTo(null);
+		ViewScreen viewScreen = new ViewScreen();
+		viewScreen.setVisible(true);
+		viewScreen.setLocationRelativeTo(null);
+		this.dispose();
     }//GEN-LAST:event_bntViewActionPerformed
+
+    private void btnExitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExitActionPerformed
+		System.exit(0);
+    }//GEN-LAST:event_btnExitActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton bntLoad;
     private javax.swing.JButton bntView;
-    private javax.swing.JButton jButton3;
+    private javax.swing.JButton btnExit;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;

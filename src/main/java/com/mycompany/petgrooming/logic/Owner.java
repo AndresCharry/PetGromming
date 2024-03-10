@@ -1,4 +1,3 @@
-
 package com.mycompany.petgrooming.logic;
 
 import java.io.Serializable;
@@ -9,43 +8,43 @@ import javax.persistence.Id;
 
 @Entity
 public class Owner implements Serializable {
-    
-    @Id
-    @GeneratedValue(strategy=GenerationType.SEQUENCE)
-    private int id;
-    private String name;
-    private String phone;
 
-    public Owner() {
-    }
+	@Id
+	@GeneratedValue(strategy = GenerationType.SEQUENCE)
+	private int id;
+	private String name;
+	private String phone;
 
-    public Owner(int id, String name, String phone) {
-        this.id = id;
-        this.name = name;
-        this.phone = phone;
-    }
+	public Owner() {
+	}
 
-    public int getId() {
-        return id;
-    }
+	public Owner(int id, String name, String phone) {
+		this.id = id;
+		this.name = name;
+		this.phone = phone;
+	}
 
-    public void setId(int id) {
-        this.id = id;
-    }
+	public int getId() {
+		return id;
+	}
 
-    public String getName() {
-        return name;
-    }
+	public void setId(int id) {
+		this.id = id;
+	}
 
-    public void setName(String name) {
-        this.name = name;
-    }
+	public String getName() {
+		return name;
+	}
 
-    public String getPhone() {
-        return phone;
-    }
+	public void setName(String name) {
+		this.name = name;
+	}
 
-    public void setPhone(String phone) {
-        this.phone = phone;
-    }
+	public String getPhone() {
+		return phone;
+	}
+
+	public void setPhone(String phone) {
+		this.phone = phone;
+	}
 }
