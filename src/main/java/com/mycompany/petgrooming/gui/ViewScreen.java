@@ -158,7 +158,7 @@ public class ViewScreen extends javax.swing.JFrame {
     private void bntRemoveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bntRemoveActionPerformed
 		if (petTable.getRowCount() > 0) {
 			if (petTable.getSelectedRow() != -1) {
-				int idPet = Integer.parseInt(String.valueOf(petTable.getValueAt(petTable.getSelectedRowCount(), 0)));
+				int idPet = Integer.parseInt(String.valueOf(petTable.getValueAt(petTable.getSelectedRow(), 0)));
 
 				logicController.remove(idPet);
 
